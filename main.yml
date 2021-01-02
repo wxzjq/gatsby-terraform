@@ -1,4 +1,4 @@
-# .github/workflows/main.yml
+# Move this file to .github/workflows/main.yml to begin using
 
 name: Deployment
 on:
