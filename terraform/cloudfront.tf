@@ -18,9 +18,10 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
-  enabled         = true
-  is_ipv6_enabled = true
-  comment         = "My website's CloudFront distribution"
+  enabled             = true
+  is_ipv6_enabled     = true
+  default_root_object = "index.html"
+  comment             = "Bitcloudify CloudFront distribution"
 
   aliases = [local.primary_domain_name, local.alternate_domain_name]
 
@@ -43,11 +44,11 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     default_ttl            = local.cloudfront_ttl
     max_ttl                = local.cloudfront_ttl
 
-    lambda_function_association {
-      event_type   = "viewer-request"
-      lambda_arn   = aws_lambda_function.redirect_lambda.qualified_arn
-      include_body = false
-    }
+    # lambda_function_association {
+    #   event_type   = "viewer-request"
+    #   lambda_arn   = aws_lambda_function.redirect_lambda.qualified_arn
+    #   include_body = false
+    # }
   }
 
   restrictions {

@@ -1,7 +1,7 @@
 resource "aws_iam_policy" "static_website_deployment_policy" {
-  name = "static-website-deployment-policy"
-  description = "Deploys Gatsby site to AWS S3 and CloudFront"
-  policy = data.template_file.static_website_deployment_document.rendered
+  name        = "static-website-deployment-policy"
+  description = "Deploys Bitcloudify to AWS S3 and CloudFront"
+  policy      = data.template_file.static_website_deployment_document.rendered
 }
 
 data "template_file" "static_website_deployment_document" {
@@ -18,7 +18,7 @@ resource "aws_iam_user" "static-website-deployment-user" {
 }
 
 resource "aws_iam_user_policy_attachment" "attach_deployment_policy" {
-  user = aws_iam_user.static-website-deployment-user.name
+  user       = aws_iam_user.static-website-deployment-user.name
   policy_arn = aws_iam_policy.static_website_deployment_policy.arn
 }
 

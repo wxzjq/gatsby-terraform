@@ -12,9 +12,9 @@ function shouldAddTrailingSlash(uri) {
 }
 
 // Redirects object's keys to values
-const redirectMap = {
-  '/': '/blog/',
-};
+// const redirectMap = {
+//   '/': '/blog/',
+// };
 
 function shouldRedirect(uri) {
   return Object.keys(redirectMap).includes(uri);
@@ -31,7 +31,7 @@ exports.handler = async (event) => {
     || shouldAddTrailingSlash(uri)
     || shouldRedirect(uri)
   ) {
-    let newUrl = 'https://www.skies.dev';
+    let newUrl = 'https://www.bitcloudify.com';
 
     // Add path
     if (uri) newUrl += shouldRedirect(uri) ? redirectMap[uri] : uri;
