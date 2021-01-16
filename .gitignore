@@ -2,6 +2,7 @@
 .terraform/
 *.tfstate*
 .terraform*
+.DS_Store
 
 # Lambda
 dist/
